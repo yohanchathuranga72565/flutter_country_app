@@ -4,9 +4,7 @@ import 'Screens/AllCountries.dart';
 void main() {
   runApp(
     new MaterialApp(
-      home: AllCountries(),
+      home: new AllCountries(),
     ),
   );
 }
-
-
