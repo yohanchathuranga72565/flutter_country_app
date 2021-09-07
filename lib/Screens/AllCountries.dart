@@ -18,7 +18,7 @@ class AllCountries extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) {
-                      return Country();
+                      return Country("India");
                     }),
                   );
                 },
@@ -38,7 +38,7 @@ class AllCountries extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) {
-                      return Country();
+                      return Country("Canada");
                     }),
                   );
                 },
