@@ -1,4 +1,6 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flip_card/flip_card.dart';
 
 class Country extends StatelessWidget {
   final Map country;
@@ -17,12 +19,58 @@ class Country extends StatelessWidget {
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           children: <Widget>[
-            CountryCard(title: "Capital"),
-            CountryCard(title: "Population"),
-            CountryCard(title: "Flag"),
-            CountryCard(title: "Currency"),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(title: "Capital"),
+              back: CountryDetailCard(
+                title: country['capital'],
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(title: "Population"),
+              back: CountryDetailCard(
+                title: country['population'].toString(),
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(title: "Flag"),
+              back: CountryDetailCard(
+                title: country['flag'],
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(title: "Currency"),
+              back: CountryDetailCard(
+                title: "hello",
+              ),
+            ),
             CountryCard(title: "Show on Map"),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CountryDetailCard extends StatelessWidget {
+  final String title;
+  const CountryDetailCard({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.deepOrange,
+      elevation: 10,
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
     );
